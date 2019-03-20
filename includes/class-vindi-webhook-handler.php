@@ -211,7 +211,7 @@ class Vindi_Webhook_Handler
             return;
         }
 
-        if ($this->container->dependency->wc_memberships_are_activated()) {
+        if ($this->container->dependency->is_wc_memberships_activated()) {
             $subscription->update_status('pending-cancel');
             return;
         }

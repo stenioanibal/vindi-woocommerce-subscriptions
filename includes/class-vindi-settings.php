@@ -55,7 +55,7 @@ class Vindi_Settings extends WC_Settings_API
 
         add_filter('woocommerce_payment_gateways', array(&$this, 'add_gateway'));
 
-        if ($this->dependency->wc_subscriptions_are_activated()){
+        if ($this->dependency->is_wc_subscriptions_activated()){
             add_action('admin_notices', array(&$this, 'manual_renew_is_deactivated'));
             add_action('admin_notices', array(&$this, 'allow_switching_is_activated'));
         }
