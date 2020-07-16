@@ -144,7 +144,7 @@ class Vindi_CreditCard_Gateway extends Vindi_Base_Gateway
      */
     public function payment_fields()
     {
-        $total      = $this->container->woocommerce->cart->total;
+        $total = floatval((isset($_GET['pay_for_order']) ? WC_Payment_Gateway::get_order_total() : $this->container->woocommerce->cart->get_cart_total()));
         $max_times  = $this->get_order_max_installments($total);
 
         if ($max_times > 1) {
